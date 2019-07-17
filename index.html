@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Scene with Environment - A-Frame</title>
+    <meta name="description" content="Basic Scene with Environment - A-Frame" />
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
+         threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
+    <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
+    <a-scene environment="preset: starry; groundColor: darkGreen; grid: none">
+      <a-assets>
+        <!-- campfire -->
+        <a-asset-item
+          id="tree-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563356288634514/0vzzmM-t8CP/1TzoENVJGDk/PUSHILIN_campfire.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="tree-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563356288634514/0vzzmM-t8CP/1TzoENVJGDk/PUSHILIN_campfire.mtl"
+        ></a-asset-item>
+
+        <!-- tent -->
+        <a-asset-item
+          id="tent-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563096796025174/2tvQrMLf_tP/8MkoWdvWq4-/model.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="tent-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563096796025174/2tvQrMLf_tP/8MkoWdvWq4-/materials.mtl"
+        ></a-asset-item>
+
+        <!-- cooler -->
+        <a-asset-item
+          id="cooler-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563358181783875/fkNjLeS1BML/5kk2dRriSdu/model.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="cooler-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563358181783875/fkNjLeS1BML/5kk2dRriSdu/materials.mtl"
+        ></a-asset-item>
+
+        <!-- backpack -->
+        <a-asset-item
+          id="backpack-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563184519030322/aVCjXvxs6sP/5IZVJZYngBO/model.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="backpack-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563184519030322/aVCjXvxs6sP/5IZVJZYngBO/materials.mtl"
+        ></a-asset-item>
+
+        <!-- kayak -->
+        <a-asset-item
+          id="kayak-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563270620628717/8d-cgFdVEVN/3habhOj-QjQ/PUSHILIN_Kayak.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="kayak-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563270620628717/8d-cgFdVEVN/3habhOj-QjQ/PUSHILIN_Kayak.mtl"
+        ></a-asset-item>
+
+        <!-- pine tree -->
+        <a-asset-item
+          id="pine-tree-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563356337818066/2Qo-fmVKuSG/dsszynttNE9/model.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="pine-tree-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563356337818066/2Qo-fmVKuSG/dsszynttNE9/materials.mtl"
+        ></a-asset-item>
+
+        <!-- rock -->
+        <a-asset-item
+          id="rock-obj"
+          src="https://poly.googleapis.com/downloads/fp/1563357946060602/dmRuyy1VXEv/8fxqsoTCWjb/PUSHILIN_rock.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="rock-mtl"
+          src="https://poly.googleapis.com/downloads/fp/1563357946060602/dmRuyy1VXEv/8fxqsoTCWjb/PUSHILIN_rock.mtl"
+        ></a-asset-item>
+      </a-assets>
+
+      <!-- moon -->
+
+      <!-- <a-sphere radius="15" background="white" color="white" position="0 100 -170" color="white">
+        <a-light light="type: ambient; color: white; intensity: .35; "></a-light>
+      </a-sphere> -->
+
+      <!-- lake -->
+      <a-plane
+        color="#000080"
+        position="0 .33 -30"
+        rotation="-90 0 0"
+        height="50"
+        width="150"
+      ></a-plane>
+
+      <!-- campfire -->
+      <a-light light="type: point; color: orange; intensity: 1.5; decay: 10">
+        <a-entity
+          position="0 .33 -3"
+          obj-model="obj: #tree-obj; mtl: #tree-mtl"
+        >
+          <a-light light="type: point; color: orange; intensity: 1.5"> </a-light
+        ></a-entity>
+      </a-light>
+
+      <!-- cooler -->
+      <a-obj-model
+        rotation=" 0 -50 0"
+        position="-2 .7 -.5"
+        src="#cooler-obj"
+        scale="4 4 4"
+        mtl="#cooler-mtl"
+      ></a-obj-model>
+
+      <!-- backpack -->
+      <a-obj-model
+        rotation="0 75 0"
+        position="4 .2 2"
+        src="#backpack-obj"
+        scale="1 1 1"
+        mtl="#backpack-mtl"
+      ></a-obj-model>
+
+      <!-- tent -->
+      <a-obj-model
+        rotation="0 75 0"
+        position="7 .2 4"
+        src="#tent-obj"
+        scale="4 4 4"
+        mtl="#tent-mtl"
+      ></a-obj-model>
+
+      <!-- kayak -->
+      <a-obj-model
+        rotation="0 75 0"
+        position="5 .7 -4"
+        src="#kayak-obj"
+        scale="1 1 1"
+        mtl="#kayak-mtl"
+      ></a-obj-model>
+
+      <!-- rocks -->
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="5 0 .5"
+        src="#rock-obj"
+        scale="1 1 1"
+        mtl="#rock-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 185 0"
+        position="-5 0 3"
+        src="#rock-obj"
+        scale="1 1 1"
+        mtl="#rock-mtl"
+      ></a-obj-model>
+
+      <!-- pine trees -->
+      <a-obj-model
+        rotation="0 75 0"
+        position="8.3 5 -3"
+        src="#pine-tree-obj"
+        scale="3 3 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="-8 4.5 -2"
+        src="#pine-tree-obj"
+        scale="3 3 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="-3.2 4.5 3"
+        src="#pine-tree-obj"
+        scale="3 2.75 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="8.3 4.5 -3"
+        src="#pine-tree-obj"
+        scale="3 3 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="-1 4.5 5"
+        src="#pine-tree-obj"
+        scale="3 3 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="-9.5 4.5 5"
+        src="#pine-tree-obj"
+        scale="3 2.75 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="6.3 4.5 10"
+        src="#pine-tree-obj"
+        scale="3 3 3"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="10.3 4.5 8"
+        src="#pine-tree-obj"
+        scale="2 2 2"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="8.3 4 1.5"
+        src="#pine-tree-obj"
+        scale="2 2 2"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="2.75 4.5 6.5"
+        src="#pine-tree-obj"
+        scale="3 3 2"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-obj-model
+        rotation="0 75 0"
+        position="105 4.5 1"
+        src="#pine-tree-obj"
+        scale="3 3 2"
+        mtl="#pine-tree-mtl"
+      ></a-obj-model>
+
+      <a-camera>
+        <a-cursor position="0 1 0" color="#FAFAFA"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
